@@ -1,1 +1,24 @@
 ## shell 变量
+	变量的取用与配置：echo,
+		查看：echo $mynane，配置：myname=xxx,不可有空格,  $可以有{}
+		“”可以保持原来的特性，‘’为一般文本，如：var="lang is $LANG"
+	取消变量：unset myset
+	单引号与双引号必须要成对
+	双引号里面的变量有效，
+
+		例子：将name变量赋值为student,并介绍下，在子程序bash中读取
+			『name=student』
+			『myname="$name its me"』
+			『export myname』『bash』『echo $name』『exit』
+
+		例子：反单引号( ` )：优先运行
+			原来的命令为
+			『cd /lib/modules/2.6.18-128.el5/kernel/』
+			但是版本不知道
+		    『cd /lib/modules/`uname -r`/kernel』也可以写为$(uname -r)
+
+	    例子：简化目录，将路径设置为变量 
+	    	『work="/cluster/server/work/taiwan_2005/003/" 』
+			『cd $work』
+    环境变量env,export
+    用set 观察所有变量			
