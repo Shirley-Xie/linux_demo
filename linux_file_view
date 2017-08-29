@@ -1,0 +1,55 @@
+# 文件内容查阅 
+
+	## 直接检查文件内容:
+		第一行开始:(cat:Concatenate),最后一行开始:(tac)
+			所有行数：(-n)
+			非空白行:(-b)
+			显示特殊字符:(-A)
+				[tab]会以^I, 断行字节:$, Windows的断行字节:^M$
+
+	
+	## 可翻页检视：
+
+		以页显示:(more), 
+			空白键:翻下一页
+			enter:翻下一行
+			／字串:向下搜索『字串』
+			离开:(q)
+
+		(less)
+			[pagedown]：向下翻动一页；
+			[pageup] ：向上翻动一页
+			?字串:向上搜索『字串』
+
+
+	## 数据撷取：head , tail 	离开键：[crtl]-c
+
+		看头几行:(head),看尾几行:(tail)
+			 默认显示10行，若想修改则用(-n) 如：head -n -100 /etc/man.config 
+       选择范围的行数： 『head -n 20 /etc/man.config | tail -n 10 』
+		
+		显示非空白行数:(nl),
+	 	 	带有空白行数:(-ba)
+	
+
+	## 非纯文档：(od) 命令:『od [-t TYPE]文件』
+		显示类型(-t)
+		  (c:ASCII, d:十进位, f:浮点数, o:八进制, x:十六进制)，
+		  	如：od -tc /usr/bin/passwd
+		  	8进位列出储存值与ASCII的对照表 ：od -t oCc /usr/bin/passwd
+
+
+	## 修改文件时间与建置新档：touch,不存在则新建
+
+		modification time (mtime):文件的内容更改，默认值
+		status time (ctime):权限与属性更改
+		access time (atime):读取时间
+		如：ls -l --time=ctime /etc/man.config
+
+		改为2天前：touch -d "2 days ago" bashrc 
+		改为2007/09/15 2:02： touch -t 0709150202 bashrc 
+
+			
+	十进制：decimal
+	八进位：octal
+	十六进位：hexadecimal

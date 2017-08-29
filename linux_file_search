@@ -1,0 +1,20 @@
+# 命令与文件的搜寻：
+
+	## 寻找『运行档』：（which） 
+		cd是『bash内建的命令』,用type
+
+	## 寻找特定文件：（whereis）和上面的区别是上面PATH没有，这可能找到
+
+	## 找到相关文件：（locate）更新数据库：updatedb
+
+  ## 搜寻硬盘：find [PATH] [option] [action]
+    action
+      时间：
+        「action：-atime, -ctime 与 -mtime，newer」+n：n天之前，-n：之后 
+        如：查询目前前24h, 命令：find / -mtime 0 
+      权限：
+        （perm）
+      类型：
+        type：装置文件 (b, c), 目录 (d), 连结档 (l), socket (s), 及 FIFO (p) 等属性  
+      额外动作：
+         （-exec ls -l {} \）如：find / -perm +7000 -exec ls -l {} \  
