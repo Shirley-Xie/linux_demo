@@ -1,10 +1,11 @@
 ## shell 变量
-	变量的取用与配置：echo,
+	# 变量的取用与配置：echo,
 		查看：echo $mynane，配置：myname=xxx,不可有空格,  $可以有{}
 		“”可以保持原来的特性，‘’为一般文本，如：var="lang is $LANG"
-	取消变量：unset myset
+	# 取消变量：unset myset
 	单引号与双引号必须要成对
 	双引号里面的变量有效，
+	两者之间的连结不可以有空格
 
 		例子：将name变量赋值为student,并介绍下，在子程序bash中读取
 			『name=student』
@@ -20,5 +21,20 @@
 	    例子：简化目录，将路径设置为变量 
 	    	『work="/cluster/server/work/taiwan_2005/003/" 』
 			『cd $work』
-    环境变量env,export
-    用set 观察所有变量			
+    # 环境变量env,export
+    # 用set 观察所有变量
+    # 变量键盘读取、数组与宣告： read, array：带下标志, declare / typeset：进行变量的宣告
+    # 与文件系统及程序的限制关系： ulimit			
+    # 变量内容的删除、取代与替换
+    	1 # ：符合取代文字的『最短的』那一个； ##：符合取代文字的『最长的』那一个
+    	2 % ：从后往前删『最短的』那一个；%%：符合取代文字的『最长的』那一个
+    	3 ${变量/旧字符串/新字符串}：第一个旧字符串会被新字符串取代 ；${变量//旧字符串/新字符串}：全部的旧字符串会被新字符串取代
+        
+        设置用户名xxx,若无使用默认变量
+    	例子：
+    	『username=“xxx”』
+    	『username=${username-root} 』显示xxx,若username未定义则显示root：『给予未配置变量的内容』
+    	例子：=直接赋值，原来的值若存在则=也无效
+    	『str="oldvar"; var=${str=newvar} 』
+    	『echo var="$var", str="$str" 』
+    		
